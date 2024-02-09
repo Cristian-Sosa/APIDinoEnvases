@@ -49,7 +49,7 @@ namespace DinoEnvases.Rules
                     {
                         lastId++;
 
-                        await new ValeData().InsertEnvase(envase, valeId, lastId);
+                        await new ValeData().InsertEnvase(envase, valeId);
                     }
 
                     // Realizar commit de la transacción

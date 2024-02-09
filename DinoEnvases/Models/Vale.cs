@@ -14,5 +14,6 @@
         public string? NroTransaccion { get; set; } = null;
         public int? IdEstadoVale { get; set; } = 1;
         public DateTime? FechaHora { get; set; } = DateTime.Now;
+        public string? EAN { get; set; } = null;
     }
 }

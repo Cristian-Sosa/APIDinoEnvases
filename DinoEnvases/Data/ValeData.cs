@@ -20,20 +20,23 @@ namespace DinoEnvases.Data
         public async Task<bool> InsertarVale(Vale vale)
         {
             string query =  "INSERT INTO Vale " +
-                            "(Id, IdUsuario, NombreUsuario, IdSucursal, NombreSucursal, TipoTkFiscal, NrtoTkFiscal, PVFiscal, NroTransaccion, IdEstadoVale, FechaHora) " +
-                            "VALUES (@ValeId, @IdUs, @NombreUs, IdSuc, @NombreSuc, @TipoTK, @NroTK, @PV, @Transaccion, @IdEstadoVale, GETDATE())";
+                            "(Id, IdUsuario, NombreUsuario, IdSucursal, NroSucursal, NombreSucursal, TipoTkFiscal, NrtoTkFiscal, PVFiscal, NroTransaccion, IdEstadoVale, FechaHora) " +
+                            "VALUES (@ValeId, @IdUs, @NombreUs, @IdSuc, @NroSuc, @NombreSuc, @TipoTK, @NroTK, @PV, @Transaccion, @IdEstadoVale, GETDATE())";
 
-            bool data = await singleton.ExecuteQueryTransacction(query, new 
+            bool data = await singleton.ExecuteQueryTransacction(query, new
             {
                 ValeId = vale.Id,
-                IdUs = vale.IdUsuario, 
-                NombreUs = vale.NombreUsuario, 
-                TipoTK = vale.TipoTkFiscal, 
-                NroTK = vale.NroTkFiscal, 
-                PV = vale.PVFiscal, 
-                Transaccion = vale.NroTransaccion, 
-                IdEstadoVale = 1, 
-            });
+                IdUs = vale.IdUsuario,
+                IdSuc = vale.IdSucursal,
+                NroSuc = vale.NroSucursal != null ? vale.NroSucursal : null,
+                NombreUs = vale.NombreUsuario,
+                NombreSuc = vale.NombreSucursal,
+                TipoTK = vale.TipoTkFiscal,
+                NroTK = vale.NroTkFiscal,
+                PV = vale.PVFiscal,
+                Transaccion = vale.NroTransaccion,
+                IdEstadoVale = 1,
+            }); ;
 
             return data;
         }
