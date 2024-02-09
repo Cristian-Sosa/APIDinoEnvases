@@ -24,15 +24,15 @@ namespace DinoEnvases.Data
                             "VALUES (@ValeId, @IdUs, @NombreUs, IdSuc, @NombreSuc, @TipoTK, @NroTK, @PV, @Transaccion, @IdEstadoVale, GETDATE())";
 
             bool data = await singleton.ExecuteQueryTransacction(query, new 
-                                                                {
-                                                                    ValeId = vale.Id,
-                                                                    IdUs = vale.IdUsuario, 
-                                                                    NombreUs = vale.NombreUsuario, 
-                                                                    TipoTK = vale.TipoTkFiscal, 
-                                                                    NroTK = vale.NroTkFiscal, 
-                                                                    PV = vale.PVFiscal, 
-                                                                    Transaccion = vale.NroTransaccion, 
-                                                                    IdEstadoVale = 1, 
+            {
+                ValeId = vale.Id,
+                IdUs = vale.IdUsuario, 
+                NombreUs = vale.NombreUsuario, 
+                TipoTK = vale.TipoTkFiscal, 
+                NroTK = vale.NroTkFiscal, 
+                PV = vale.PVFiscal, 
+                Transaccion = vale.NroTransaccion, 
+                IdEstadoVale = 1, 
             });
 
             return data;
@@ -71,7 +71,14 @@ namespace DinoEnvases.Data
             string query = "INSERT INTO DetalleVale (IdVale, IdEnvase, Codigo, Descripcion, Cantidad) " +
                            "VALUES (@ValeId, @EnvaseId, @CodigoEnvase, @DescEnvase, @CantEnvase)";
 
-            bool data = await singleton.ExecuteQueryTransacction(query, new { ValeId = valeId, EnvaseId = envase.Id, CodigoEnvase = int.Parse(envase.Codigo!), DescEnvase = envase.Descripcion, CantEnvase = envase.Cantidades });
+            bool data = await singleton.ExecuteQueryTransacction(query, new 
+            { 
+                ValeId = valeId, 
+                EnvaseId = envase.Id, 
+                CodigoEnvase = int.Parse(envase.Codigo!), 
+                DescEnvase = envase.Descripcion, 
+                CantEnvase = envase.Cantidades 
+            });
 
             return data;
         }
