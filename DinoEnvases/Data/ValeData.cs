@@ -1,5 +1,6 @@
 ﻿using DinoEmpleoAPI.Data;
 using DinoEnvases.Models;
+using DinoEnvases.Models.DTO;
 using DinoEnvases.Models.Requests;
 
 namespace DinoEnvases.Data
@@ -10,7 +11,7 @@ namespace DinoEnvases.Data
 
         public ValeRequest? ValeExist(string nroVale)
         {
-            string query = $"SELECT * FROM Vale WHERE Id LIKE '{nroVale}'";
+            string query = $"SELECT * FROM Vale WHERE Id LIKE '-{nroVale}'";
 
             ValeRequest? data = singleton.ExecuteQuery<ValeRequest?>(query, new { valeNro = nroVale }).FirstOrDefault();
 
@@ -46,7 +47,7 @@ namespace DinoEnvases.Data
             string query = "SELECT u.Id AS 'IdUsuario', u.Usuario AS 'NombreUsuario', suc.Id AS 'IdSucursal', " +
                             "suc.SucTipre AS 'NroSucursal', suc.DescripcionCorta AS 'NombreSucursal' FROM Usuario u " +
                             "INNER JOIN Sucursal suc WITH(NOLOCK) ON suc.DescripcionCorta = u.Usuario " +
-                            "WHERE u.Nombre = @nombreSuc";
+                            "WHERE u.Usuario = @nombreSuc";
 
             Vale? data = singleton.ExecuteQuery<Vale>(query, new { nombreSuc = sucursal }).FirstOrDefault();
 
@@ -66,7 +67,6 @@ namespace DinoEnvases.Data
 
 
             return valeId;
-            
         }
 
         public async Task<bool> InsertEnvase(Envase envase, string valeId)
@@ -99,5 +99,15 @@ namespace DinoEnvases.Data
 
             return int.Parse(data);
         }
+
+        public async Task<bool> AnularVale(string valeNro, string nombreUsuario)
+        {
+            string query = $"UPDATE Vale SET IdEstadoVale = 2 WHERE IdEstadoVale = 1 AND Id LIKE '%-{valeNro}' AND NombreUsuario = '{nombreUsuario}'";
+
+            bool data = await singleton.ExecuteQueryTransacction(query, null);
+
+            return data;
+        }
+
     }
 }

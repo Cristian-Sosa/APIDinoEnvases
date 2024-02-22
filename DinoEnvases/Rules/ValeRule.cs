@@ -9,12 +9,30 @@ namespace DinoEnvases.Rules
     {        
         public Vale? ObtenerDatosVale(ValeRequest modelo)
         {
+            string? lastVale = new ValeData().LastValeId();
             Vale? datosVale = new ValeData().ValeInfo(modelo.Sucursal!);
 
-            datosVale!.Id = string.Concat(new ValeData().LastValeId(), "-", modelo.ValeNro);
+            string? ean = EANGenerator(datosVale!.NroSucursal!, lastVale!);
+
+            datosVale.EAN = ean;
+
+            datosVale!.Id = string.Concat(lastVale, "-", modelo.ValeNro);
 
             return datosVale;
         }
+
+        private static string? EANGenerator(int? nroSucursal, string? id)
+        {
+            string cod1 = "";
+
+            if (nroSucursal != null && id != null)
+            {
+                cod1 = "9" + nroSucursal.ToString()!.PadLeft(3, '0') + id!.PadLeft(8, '0');
+            }
+
+            return cod1!;
+        }
+
 
         public async Task<bool> AddVale(Vale vale)
         {
@@ -64,6 +82,21 @@ namespace DinoEnvases.Rules
                     return false;
                 }
             }
+        }
+
+        public async Task<bool> AnularVale(string NroVale, string Username)
+        {
+            await new ValeData().AnularVale(NroVale, Username);
+
+            return true;
+        }
+
+
+        public async Task<bool> AnularVale2(string nroVale, string nombreUsuario)
+        {
+            await new ValeData().AnularVale(nroVale, nombreUsuario);
+
+            return true;
         }
     }
 }
