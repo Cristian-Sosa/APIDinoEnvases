@@ -12,13 +12,18 @@ namespace DinoEnvases.Controllers
         [HttpPost("Add")]
         public IActionResult AddVale([FromBody] ValeRequest modelo)
         {
-            Vale? datosVale = new ValeRule().ObtenerDatosVale(modelo);
+            if(modelo.Sucursal != "csosa" && modelo.Sucursal != "mcastillo")
+            {
+                Vale? datosVale = new ValeRule().ObtenerDatosVale(modelo);
 
-            var _ = new ValeRule().AddEnvase(modelo.Items!, datosVale!.Id!);
+                var _ = new ValeRule().AddEnvase(modelo.Items!, datosVale!.Id!);
 
-            var __ = new ValeRule().AddVale(datosVale);
+                var __ = new ValeRule().AddVale(datosVale);
 
-            return Ok(datosVale);
+                return Ok(datosVale);
+            }
+
+            return Ok();
         }
 
         [HttpPost("BulkAdd")]

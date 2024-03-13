@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Controllers\\ValeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DinoEnvases\\Controllers\\ValeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Rules\\ValeRule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DinoEnvases\\Rules\\ValeRule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Data\\ValeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DinoEnvases\\Data\\ValeData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ValeRule.cs",
+              "DocumentMoniker": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Rules\\ValeRule.cs",
+              "RelativeDocumentMoniker": "DinoEnvases\\Rules\\ValeRule.cs",
+              "ToolTip": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Rules\\ValeRule.cs",
+              "RelativeToolTip": "DinoEnvases\\Rules\\ValeRule.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAwwCoAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T13:03:05.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ValeController.cs",
+              "DocumentMoniker": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Controllers\\ValeController.cs",
+              "RelativeDocumentMoniker": "DinoEnvases\\Controllers\\ValeController.cs",
+              "ToolTip": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Controllers\\ValeController.cs*",
+              "RelativeToolTip": "DinoEnvases\\Controllers\\ValeController.cs*",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T13:03:05.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ValeData.cs",
+              "DocumentMoniker": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Data\\ValeData.cs",
+              "RelativeDocumentMoniker": "DinoEnvases\\Data\\ValeData.cs",
+              "ToolTip": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\Data\\ValeData.cs",
+              "RelativeToolTip": "DinoEnvases\\Data\\ValeData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T13:03:05.159Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
