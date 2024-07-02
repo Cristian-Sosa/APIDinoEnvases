@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WQT7AWjhjQylHRCVq+4L3xyUYHJ0qHlbSek6kS5tZuV3UfqlqwI7YeIdKkkMkE/d3WT6m6YnoF9sF65IBhHUYA==",
+  "dgSpecHash": "KNEZH5hSMbNGXLUzvQUt9hceFA1viSLj/hIPruMQ3XYRomK8JgjP/VoxPPe3Zsg9xlNxjemazMwg+ZH7p+bTPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
+  "projectFilePath": "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\csosa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\csosa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

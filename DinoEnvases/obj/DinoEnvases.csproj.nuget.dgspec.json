@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\DinoEnvases.csproj": {}
+    "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\DinoEnvases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\DinoEnvases.csproj": {
+    "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\DinoEnvases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
+        "projectUniqueName": "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
         "projectName": "DinoEnvases",
-        "projectPath": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
+        "projectPath": "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\DinoEnvases.csproj",
         "packagesPath": "C:\\Users\\csosa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csosa\\source\\repos\\DinoEnvases\\DinoEnvases\\obj\\",
+        "outputPath": "C:\\Users\\csosa\\Documents\\GitHub\\Envases\\APIDinoEnvases\\DinoEnvases\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\csosa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
