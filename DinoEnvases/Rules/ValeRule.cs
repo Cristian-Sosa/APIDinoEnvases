@@ -1,6 +1,8 @@
 ﻿using DinoEnvases.Data;
 using DinoEnvases.Models;
 using DinoEnvases.Models.Requests;
+using DinoEnvases.Models.Responses;
+using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
 namespace DinoEnvases.Rules
@@ -23,15 +25,28 @@ namespace DinoEnvases.Rules
 
         private static string? EANGenerator(int? nroSucursal, string? id)
         {
-            string cod1 = "";
-
-            if (nroSucursal != null && id != null)
+            if (nroSucursal == null || id == null)
             {
-                cod1 = "9" + nroSucursal.ToString()!.PadLeft(3, '0') + id!.PadLeft(8, '0');
+                return null;
             }
 
-            return cod1!;
+            // Generar el código base
+            string cod1 = "9" + nroSucursal.Value.ToString("D3") + id.PadLeft(8, '0');
+
+            // Calcular el dígito de control
+            int sum = 0;
+            for (int i = 0; i < cod1.Length; i++)
+            {
+                int digit = int.Parse(cod1[i].ToString());
+                sum += (i % 2 == 0) ? digit : digit * 3;
+            }
+
+            int checkDigit = (10 - (sum % 10)) % 10;
+
+            // Devolver el código completo
+            return cod1 + checkDigit.ToString();
         }
+
 
 
         public async Task<bool> AddVale(Vale vale)
@@ -55,7 +70,51 @@ namespace DinoEnvases.Rules
             }
         }
 
-        public async Task<bool> AddEnvase(List<Envase> envases, string valeId)
+        public async Task<bool> ConsumirTicket(TicketRequest data)
+        {
+            using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
+                try
+                {
+                    await new ValeData().ConsumirTicket(data);
+
+                    // Realizar commit de la transacción
+                    transaction.Complete();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Manejar el error
+                    Console.WriteLine("Error al insertar envases: " + ex.Message);
+                 
+                    // Deshacer la transacción en caso de error
+                    return false;
+                }
+            }
+        }
+
+        public List<EnvaseFacturable>? ObtenerDetalleVale(string nroTransaccion)
+        {
+            return new ValeData().DetalleVale(nroTransaccion);
+        }
+
+        public string ValidarValeRendido(string nroTransaccion)
+        {
+            Vale? isValeRendido = new ValeData().ValidarValeRendido(nroTransaccion);
+
+            if (isValeRendido != null && isValeRendido.IdEstadoVale == 3)
+            {
+                return "El vale ya se encuentra facturado";
+            } else if(isValeRendido == null)
+            {
+                return "El vale no existe";
+            }
+
+            return "";
+        }
+
+        public async Task<bool> AddEnvase(List<Envase> envases, string valeId, string ean)
         {
             using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {

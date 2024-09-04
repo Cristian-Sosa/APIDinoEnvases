@@ -2,6 +2,8 @@
 using DinoEnvases.Models;
 using DinoEnvases.Models.DTO;
 using DinoEnvases.Models.Requests;
+using DinoEnvases.Models.Responses;
+using System.Collections.Generic;
 
 namespace DinoEnvases.Data
 {
@@ -35,9 +37,18 @@ namespace DinoEnvases.Data
                 TipoTK = vale.TipoTkFiscal,
                 NroTK = vale.NroTkFiscal,
                 PV = vale.PVFiscal,
-                Transaccion = vale.NroTransaccion,
+                Transaccion = vale.EAN,
                 IdEstadoVale = 1,
             }); ;
+
+            return data;
+        }
+
+        public async Task<bool> ConsumirTicket(TicketRequest vale)
+        {
+            string query = "UPDATE Vale SET TipoTkFiscal = @TipoTkFiscal, NrtoTkFiscal = @NroTkFiscal, PVFiscal = @PVFiscal, IdEstadoVale = '3' where NroTransaccion = @NroTransaccion";
+
+            bool data = await singleton.ExecuteQueryTransacction(query, vale);
 
             return data;
         }
@@ -50,6 +61,28 @@ namespace DinoEnvases.Data
                             "WHERE u.Usuario = @nombreSuc";
 
             Vale? data = singleton.ExecuteQuery<Vale>(query, new { nombreSuc = sucursal }).FirstOrDefault();
+
+            return data;
+        }
+
+        public List<EnvaseFacturable>? DetalleVale(string nroTransaccion)
+        {
+            string query =  "SELECT detVale.Codigo, detVale.Cantidad FROM DetalleVale detVale WITH(NOLOCK) " +
+                            "INNER JOIN Vale vale WITH(NOLOCK) ON detVale.IdVale = vale.Id " +
+                            "INNER JOIN Envase envase WITH(NOLOCK) ON envase.Id = detVale.IdEnvase " +
+                            "WHERE vale.NroTransaccion = @NroTransaccion AND envase.EsCajon = 0 " +
+                            "GROUP BY detVale.Codigo;";
+
+            List<EnvaseFacturable>? data = singleton.ExecuteQuery<EnvaseFacturable>(query, new { NroTransaccion = nroTransaccion }).ToList();
+
+            return data;
+        }
+
+        public Vale? ValidarValeRendido(string nroTransaccion)
+        {
+            string query = "SELECT * FROM Vale WHERE NroTransaccion = @NroTransaccion";
+
+            Vale? data = singleton.ExecuteQuery<Vale>(query, new { NroTransaccion = nroTransaccion }).FirstOrDefault();
 
             return data;
         }

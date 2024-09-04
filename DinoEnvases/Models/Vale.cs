@@ -11,7 +11,7 @@
         public string? TipoTkFiscal { get; set; } = null;
         public int? NroTkFiscal { get; set; } = null;
         public int? PVFiscal { get; set; } = null;
-        public string? NroTransaccion { get; set; } = null;
+        public string? NroTransaccion { get; set; }
         public int? IdEstadoVale { get; set; } = 1;
         public DateTime? FechaHora { get; set; } = DateTime.Now;
         public string? EAN { get; set; }

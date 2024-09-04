@@ -1,5 +1,6 @@
 ﻿using DinoEnvases.Models;
 using DinoEnvases.Models.Requests;
+using DinoEnvases.Models.Responses;
 using DinoEnvases.Rules;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,12 @@ namespace DinoEnvases.Controllers
             {
                 Vale? datosVale = new ValeRule().ObtenerDatosVale(modelo);
 
-                var _ = new ValeRule().AddEnvase(modelo.Items!, datosVale!.Id!);
+                var _ = new ValeRule().AddEnvase(modelo.Items!, datosVale!.Id!, datosVale.EAN!);
 
                 var __ = new ValeRule().AddVale(datosVale);
+
+                if (datosVale.EAN != null)
+                    datosVale.EAN = datosVale.EAN?[..^1];
 
                 return Ok(datosVale);
             }
@@ -33,7 +37,7 @@ namespace DinoEnvases.Controllers
             {
                 Vale? datosVale = new ValeRule().ObtenerDatosVale(modelo[i]);
 
-                var _ = new ValeRule().AddEnvase(modelo[i].Items!, datosVale!.Id!);
+                var _ = new ValeRule().AddEnvase(modelo[i].Items!, datosVale!.Id!, datosVale.EAN!);
 
                 var __ = new ValeRule().AddVale(datosVale);
             }
@@ -47,6 +51,24 @@ namespace DinoEnvases.Controllers
             Task<bool> rule = new ValeRule().AnularVale2(NroVale, Username);
 
             return Ok(true);
+        }
+
+        [HttpPatch("ConsumirTicket")]
+        public IActionResult ConsumirVale([FromBody] TicketRequest vale)
+        {
+            string isValeRendido = new ValeRule().ValidarValeRendido(vale.NroTransaccion);
+
+            if (isValeRendido != "")
+                return BadRequest(isValeRendido);
+
+            Task<bool> rule = new ValeRule().ConsumirTicket(vale);
+
+            List<EnvaseFacturable>? listaEnvases = new ValeRule().ObtenerDetalleVale(vale.NroTransaccion);
+
+            return Ok(listaEnvases);
+
+
+
         }
     }
 }

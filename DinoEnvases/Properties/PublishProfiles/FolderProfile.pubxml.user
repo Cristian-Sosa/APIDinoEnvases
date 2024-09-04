@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\csosa\Documents\GitHub\API\Releases\DinoEnvases</_PublishTargetUrl>
-    <History>True|2024-02-20T19:53:27.0887423Z;True|2024-02-20T12:55:28.3855890-03:00;True|2024-02-20T12:38:00.9594786-03:00;True|2024-02-20T08:54:15.8393548-03:00;</History>
+    <History>True|2024-09-04T15:10:33.0985143Z||;True|2024-09-02T16:41:31.9184489-03:00||;True|2024-02-20T16:53:27.0887423-03:00||;True|2024-02-20T12:55:28.3855890-03:00||;True|2024-02-20T12:38:00.9594786-03:00||;True|2024-02-20T08:54:15.8393548-03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

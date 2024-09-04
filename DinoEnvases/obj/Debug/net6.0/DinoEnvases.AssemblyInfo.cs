@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DinoEnvases")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+554d8234c6c68bf6483b8549fd747a204665bacc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2f7ed57eb3531dae7d692d0e2cd93976c922e6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DinoEnvases")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DinoEnvases")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

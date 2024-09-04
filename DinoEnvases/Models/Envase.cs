@@ -1,4 +1,6 @@
-﻿namespace DinoEnvases.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DinoEnvases.Models
 {
     public class Envase
     {
